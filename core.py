@@ -9,7 +9,7 @@ def dragon(n):
     return prev + [1] + prev_s
 
 
-def dragon_arc(n,xst=0,yst=0,size=1500,dir_deg=None,dir_rad=None,angle_deg=None,angle_rad=None):
+def dragon_arc(n,xst=0,yst=0,dir_deg=None,dir_rad=None,angle_deg=None,angle_rad=None):
     """Returns the svgwrite commands to draw an order n dragon curve."""
     from math import pi,sqrt,cos,sin
 
@@ -26,7 +26,7 @@ def dragon_arc(n,xst=0,yst=0,size=1500,dir_deg=None,dir_rad=None,angle_deg=None,
         dir = dir_rad
 
     ls = dragon(n)
-    my_d = "M"+str(size[0]/2+xst)+","+str(size[1]/2+yst)
+    my_d = "M"+str(xst)+","+str(yst)
     length = sqrt(50-50*cos(angle))
     for l in ls:
         my_d += " a5,5 0 0,"+str(l)
