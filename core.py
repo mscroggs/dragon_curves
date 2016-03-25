@@ -43,33 +43,5 @@ def dragon_arc(n,xst=0,yst=0,dir_deg=None,dir_rad=None,angle_deg=None,angle_rad=
         else:
             dir -= angle/2
 
-        """if dir=="y+":
-            if l==0:
-                my_d += " 5,5"
-                dir = "x+"
-            else:
-                my_d += " -5,5"
-                dir = "x-"
-        elif dir=="y-":
-            if l==0:
-                my_d += " -5,-5"
-                dir = "x-"
-            else:
-                my_d += " 5,-5"
-                dir = "x+"
-        elif dir=="x+":
-            if l==0:
-                my_d += " 5,-5"
-                dir = "y-"
-            else:
-                my_d += " 5,5"
-                dir = "y+"
-        elif dir=="x-":
-            if l==0:
-                my_d += " -5,5"
-                dir = "y+"
-            else:
-                my_d += " -5,-5"
-                dir = "y-"""
     return my_d
 
