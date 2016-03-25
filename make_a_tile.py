@@ -1,6 +1,6 @@
-##################################################
-# This file will draw a dragon curve or order 10 #
-##################################################
+#########################################################
+# This file will draw tileable image containing dragons #
+#########################################################
 
 from random import choice
 from core import dragon_arc
