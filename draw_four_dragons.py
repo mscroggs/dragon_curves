@@ -2,7 +2,7 @@
 # This file will draw four randonly coloured dragons #
 ######################################################
 
-from random import choice
+from random import choice,randrange
 from core import dragon_arc
 import svgwrite
 
@@ -24,25 +24,25 @@ svg_document.add(svg_document.rect(insert=(0, 0), size=(width,width),
                         fill='black', stroke='none'))
 # draw the dragon curves in black
 svg_document.add(svg_document.path(
-                 d=dragon_arc(10,xst=width/2+5,yst=width/2,dir_deg=0),
+                 d=dragon_arc(randrange(2,11),xst=width/2+5,yst=width/2,dir_deg=0),
                  stroke=randcol(),
                  stroke_width = "2",
                  fill = "none"
                 ))
 svg_document.add(svg_document.path(
-                 d=dragon_arc(10,xst=width/2,yst=width/2+5,dir_deg=-90),
+                 d=dragon_arc(randrange(2,11),xst=width/2,yst=width/2+5,dir_deg=-90),
                  stroke=randcol(),
                  stroke_width = "2",
                  fill = "none"
                 ))
 svg_document.add(svg_document.path(
-                 d=dragon_arc(10,xst=width/2-5,yst=width/2,dir_deg=180),
+                 d=dragon_arc(randrange(2,11),xst=width/2-5,yst=width/2,dir_deg=180),
                  stroke=randcol(),
                  stroke_width = "2",
                  fill = "none"
                 ))
 svg_document.add(svg_document.path(
-                 d=dragon_arc(10,xst=width/2,yst=width/2-5,dir_deg=90),
+                 d=dragon_arc(randrange(2,11),xst=width/2,yst=width/2-5,dir_deg=90),
                  stroke=randcol(),
                  stroke_width = "2",
                  fill = "none"
