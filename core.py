@@ -4,7 +4,7 @@ def dragon(n):
         return [1]
     prev = dragon(n-1)
     prev_s = prev[:]
-    mid = len(prev_s) / 2
+    mid = len(prev_s) // 2
     prev_s[mid] = 1-prev_s[mid]
     return prev + [1] + prev_s
 
