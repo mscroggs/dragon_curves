@@ -23,7 +23,7 @@ def dragon_arc(
     angle_deg: float | None = None,
     angle_rad: float | None = None,
     return_position: bool = False,
-):
+) -> str:
     """Returns the svgwrite commands to draw an order n dragon curve."""
     pos = [xst, yst]
     angle = pi / 2
