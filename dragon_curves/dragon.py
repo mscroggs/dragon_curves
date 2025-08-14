@@ -1,4 +1,5 @@
 """Dragon curve functions."""
+
 from math import pi, sqrt, cos, sin
 
 
