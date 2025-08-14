@@ -41,7 +41,7 @@ def dragon_arc(
     my_d = f"M{xst},{yst}"
     length = sqrt(50 - 50 * cos(angle))
     for d in dragon(n):
-        my_d += " a5,5 0 0,{d}"
+        my_d += f" a5,5 0 0,{d}"
         if d == 0:
             dir += angle / 2
         else:
