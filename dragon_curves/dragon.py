@@ -1,17 +1,45 @@
 """Dragon curve functions."""
 
+from __future__ import annotations
 from math import pi, sqrt, cos, sin
+from enum import Enum
 
 
-def dragon(n: int) -> list[int]:
+class Turn(Enum):
+    """Left or right turn."""
+
+    Left = 0
+    Right = 1
+
+    def __repr__(self) -> str:
+        if self == Turn.Left:
+            return "Turn.Left"
+        else:
+            return "Turn.Right"
+
+    def __str__(self) -> str:
+        if self == Turn.Left:
+            return "Turn.Left"
+        else:
+            return "Turn.Right"
+
+    def opposite(self) -> Turn:
+        """Get the opposite turn."""
+        if self == Turn.Left:
+            return Turn.Right
+        else:
+            return Turn.Left
+
+
+def dragon(n: int) -> list[Turn]:
     """Returns a list of 0s and 1s representing the order n dragon curve."""
     if n <= 1:
-        return [1]
+        return [Turn.Right]
     prev = dragon(n - 1)
-    prev_s = prev[:]
+    prev_s = prev.copy()
     mid = len(prev_s) // 2
-    prev_s[mid] = 1 - prev_s[mid]
-    return prev + [1] + prev_s
+    prev_s[mid] = prev_s[mid].opposite()
+    return prev + [Turn.Right] + prev_s
 
 
 def dragon_arc(
@@ -23,7 +51,7 @@ def dragon_arc(
     angle_deg: float | None = None,
     angle_rad: float | None = None,
     return_position: bool = False,
-) -> str:
+) -> str | tuple[str, list[float]]:
     """Returns the svgwrite commands to draw an order n dragon curve."""
     pos = [xst, yst]
     angle = pi / 2
@@ -41,15 +69,15 @@ def dragon_arc(
     my_d = f"M{xst},{yst}"
     length = sqrt(50 - 50 * cos(angle))
     for d in dragon(n):
-        my_d += f" a5,5 0 0,{d}"
-        if d == 0:
+        my_d += f" a5,5 0 0,{d.value}"
+        if d == Turn.Left:
             dir += angle / 2
         else:
             dir -= angle / 2
         my_d += f" {length * cos(dir)},{-length * sin(dir)}"
         pos[0] += length * cos(dir)
         pos[1] -= length * sin(dir)
-        if d == 0:
+        if d == Turn.Left:
             dir += angle / 2
         else:
             dir -= angle / 2
