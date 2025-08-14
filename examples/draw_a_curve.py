@@ -8,7 +8,6 @@ svg_document = svgwrite.Drawing(filename="dragon10.svg", size=("500px", "330px")
 # fill the background with white
 svg_document.add(svg_document.rect(insert=(0, 0), size=(500, 330), fill="white", stroke="none"))
 # draw the dragon curve in black
-print(dragon_arc(10, xst=380, yst=120, dir_deg=-90))
 svg_document.add(
     svg_document.path(
         d=dragon_arc(10, xst=380, yst=120, dir_deg=-90),
