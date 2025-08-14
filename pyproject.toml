@@ -3,7 +3,7 @@ name = "dragon_curves"
 version = "0.1.0"
 description = "dragon curves"
 readme = "README.md"
-requires-python = ">=3.9.0"
+requires-python = ">=3.10.0"
 license = { file = "LICENSE" }
 authors = [
     { name = "Matthew Scroggs", email = "dragon@mscroggs.co.uk" }
