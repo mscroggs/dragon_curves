@@ -16,8 +16,8 @@ def dragon(n: int) -> list[int]:
 
 def dragon_arc(
     n: int,
-    xst: int = 0,
-    yst: int = 0,
+    xst: float = 0.0,
+    yst: float = 0.0,
     dir_deg: float | None = None,
     dir_rad: float | None = None,
     angle_deg: float | None = None,
@@ -32,7 +32,7 @@ def dragon_arc(
     if angle_rad is not None:
         angle = angle_rad
 
-    dir = 0
+    dir = 0.0
     if dir_deg is not None:
         dir = dir_deg * pi / 180
     if dir_rad is not None:
