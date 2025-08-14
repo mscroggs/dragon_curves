@@ -32,7 +32,13 @@ class Turn(Enum):
 
 
 def dragon(n: int) -> list[Turn]:
-    """Returns a list of 0s and 1s representing the order n dragon curve."""
+    """Returns a list of 0s and 1s representing the order n dragon curve.
+
+    Args:
+        n: The order of the dragon curve
+
+    Returns: a sequence of left and right turns
+    """
     if n <= 1:
         return [Turn.Right]
     prev = dragon(n - 1)
@@ -52,7 +58,11 @@ def dragon_arc(
     angle_rad: float | None = None,
     return_position: bool = False,
 ) -> str | tuple[str, list[float]]:
-    """Returns the svgwrite commands to draw an order n dragon curve."""
+    """Returns the svgwrite commands to draw an order n dragon curve.
+
+    Args:
+        n: The order of the dragon curve
+    """
     pos = [xst, yst]
     angle = pi / 2
     if angle_deg is not None:
