@@ -1,0 +1,32 @@
+[project]
+name = "dragon_curves"
+version = "0.1.0"
+description = "dragon curves"
+readme = "README.md"
+requires-python = ">=3.9.0"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Matthew Scroggs", email = "dragon@mscroggs.co.uk" }
+]
+
+[project.urls]
+homepage = "https://github.com/mscroggs/dragon_curves"
+repository = "https://github.com/mscroggs/dragon_curves"
+
+[project.optional-dependencies]
+style = ["ruff", "mypy"]
+optional = ["svgwrite"]
+test = ["pytest", "dragon_curves[optional]"]
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.mypy]
+ignore_missing_imports = true

@@ -1,0 +1,27 @@
+name: 🕶️
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  style-checks:
+    name: Run style checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.13
+      - uses: actions/checkout@v4
+      - run: python3 -m pip install -e .[style,docs]
+      - run: |
+          python3 -m ruff check .
+          python3 -m ruff format --check .
+        name: Run ruff checks
+      - run: python3 -m mypy .
+        name: Run mypy checks
