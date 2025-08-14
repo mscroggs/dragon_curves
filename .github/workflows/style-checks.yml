@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: 3.13
       - uses: actions/checkout@v4
-      - run: python3 -m pip install -e .[style,docs]
+      - run: python3 -m pip install -e .[style]
       - run: |
           python3 -m ruff check .
           python3 -m ruff format --check .
